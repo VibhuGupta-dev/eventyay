@@ -910,6 +910,25 @@ def base_placeholders(sender: Event, **kwargs):
             '    68CYU2H6ZTP3WLK5\n    7MB94KKPVEPSMVF2',
         ),
         SimpleFunctionalMailTextPlaceholder(
+            'voucher_urls',
+            ['event', 'voucher_list'],
+            lambda event, voucher_list: '  \n'.join(
+                build_absolute_uri(event, 'presale:event.redeem') + '?voucher=' + code
+                for code in voucher_list
+            ),
+            lambda event: build_absolute_uri(event, 'presale:event.redeem') + '?voucher=68CYU2H6ZTP3WLK5  \n'
+            + build_absolute_uri(event, 'presale:event.redeem') + '?voucher=7MB94KKPVEPSMVF2',
+        ),
+        SimpleFunctionalMailTextPlaceholder(
+            'redeem_url',
+            ['event', 'voucher_list'],
+            lambda event, voucher_list: (
+                build_absolute_uri(event, 'presale:event.redeem') + '?voucher=' + voucher_list[0]
+                if voucher_list else build_absolute_uri(event, 'presale:event.redeem')
+            ),
+            lambda event: build_absolute_uri(event, 'presale:event.redeem') + '?voucher=68CYU2H6ZTP3WLK5',
+        ),
+        SimpleFunctionalMailTextPlaceholder(
             'url',
             ['event', 'voucher_list'],
             lambda event, voucher_list: build_absolute_uri(
