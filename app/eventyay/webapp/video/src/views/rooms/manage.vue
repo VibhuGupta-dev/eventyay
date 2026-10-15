@@ -1312,7 +1312,9 @@ export default {
 	.url-popup
 		z-index: 1000
 		width: var(--chatbar-width, 360px)
+		min-width: 320px
 		max-width: calc(100vw - 32px)
+		box-sizing: border-box
 		.url-popup-content
 			card()
 			display: flex
@@ -1323,6 +1325,7 @@ export default {
 			background: var(--clr-surface, #fff)
 			border-radius: 8px
 			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15)
+			box-sizing: border-box
 			transform-origin: top right
 			transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1)
 

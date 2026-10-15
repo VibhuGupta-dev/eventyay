@@ -116,17 +116,26 @@ export default {
 		gap: 6px
 		.card-header
 			margin-bottom: 4px
+			.url-label
+				word-break: normal
+				white-space: normal
+			.url-hint
+				word-break: normal
+				white-space: normal
 		.url-input-group
 			gap: 6px
+			flex-wrap: nowrap
 			.input-wrapper
 				height: 36px
 				padding: 0 8px
+				min-width: 0
 				.url-input
 					font-size: 12px
 			.btn-copy
 				height: 36px
 				padding: 0 12px
 				font-size: 12px
+				flex-shrink: 0
 
 	.card-header
 		display: flex
